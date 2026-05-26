@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abc studio | 讓舞蹈成為孩子成長的一部分 - 專業舞蹈教室</title>
+    <meta name="description"
+        content="ABC Studio 成立於 2017 年，秉持快樂學習、輕鬆學習的理念。提供幼兒班、基礎班、中級班、高級班與成人班等多元舞蹈課程，包含芭蕾、肚皮舞、拉丁舞、Kpop 與中國舞。">
+
+    <meta property="og:title" content="abc studio | 讓舞蹈成為孩子成長的一部分">
+    <meta property="og:description" content="ABC Studio 成立於 2017 年，秉持快樂學習、輕鬆學習的理念。引導孩子與成人在快樂與自信中踏出每一步。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.abcstudio.com">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A5B4FC',     // Indigo 300
+                        secondary: '#6366F1',   // Indigo 500
+                        secondaryHover: '#4F46E5', // Indigo 600
+                        bgLight: '#F8FAFC',     // Slate 50
+                        textDark: '#1E293B',    // Slate 800
+                    },
+                    borderRadius: {
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    },
+                    scale: {
+                        '102': '1.02',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            color: #1E293B;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Hover Effect Base */
+        .hover-card-effect {
+            transition: all 400ms ease-out;
+        }
+
+        .hover-card-effect:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Navbar Active Dot Indicator */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%) scale(1.05);
+            width: 16px;
+            height: 3px;
+            background-color: #6366F1;
+            border-radius: 9999px;
+            transition: all 300ms ease-out;
+        }
+
+        /* Skeleton Loading Effect */
+        .skeleton {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-textDark">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-md rounded-2xl px-6 py-3 shadow-sm transition-all duration-300"
+            id="nav-container">
+            <a href="#"
+                class="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-secondary rounded-full p-1">
+                <div
+                    class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    abc
+                </div>
+                <span class="font-bold text-xl tracking-wide text-textDark">abc studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">關於我們</a>
+                <a href="#dance-types"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">舞蹈類型</a>
+                <a href="#instructors"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">教師介紹</a>
+                <a href="#schedule"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">課表資訊</a>
+                <a href="#social-proof"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">學員成果</a>
+                <a href="#faq"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">FAQ</a>
+                <a href="#contact"
+                    class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">聯絡我們</a>
+            </div>
+
+            <button id="menu-btn"
+                class="md:hidden text-textDark p-2 focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg"
+                aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-50 flex flex-col justify-center items-center space-y-8 text-lg font-medium opacity-0 pointer-events-none transition-all duration-300">
+        <button id="close-menu-btn"
+            class="absolute top-8 right-8 p-3 text-textDark hover:text-secondary transition-colors focus:outline-none"
+            aria-label="Close Menu">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+
+        <button onclick="scrollToSection('#about')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">關於我們</button>
+        <button onclick="scrollToSection('#dance-types')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">舞蹈類型</button>
+        <button onclick="scrollToSection('#instructors')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">教師介紹</button>
+        <button onclick="scrollToSection('#schedule')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">課表資訊</button>
+        <button onclick="scrollToSection('#social-proof')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">學員成果</button>
+        <button onclick="scrollToSection('#faq')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">FAQ</button>
+        <button onclick="scrollToSection('#contact')"
+            class="text-textDark hover:text-secondary font-medium transition-colors focus:outline-none">聯絡我們</button>
+    </div>
+
+    <section class="relative h-screen w-full overflow-hidden bg-bgLight">
+        <div id="hero-carousel" class="absolute inset-0 w-full h-full">
+            <div class="carousel-item absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1920&q=80"
+                    alt="Dance Image 1" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10"></div>
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1920&q=80"
+                    alt="Dance Image 2" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10"></div>
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80"
+                    alt="Dance Image 3" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center items-start pt-16">
+            <span
+                class="text-secondary font-bold tracking-widest bg-indigo-50 px-4 py-1.5 rounded-full text-xs md:text-sm mb-4 animate-fade-in">EST.
+                2017 | ABC STUDIO</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-textDark max-w-2xl leading-tight">
+                讓舞蹈成為孩子<br><span class="text-secondary">成長的一部分</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-md font-medium">
+                在快樂與自信中學習每一步。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#contact"
+                    class="inline-flex justify-center items-center px-8 py-4 bg-secondary text-white font-semibold rounded-2xl shadow-lg shadow-indigo-200 hover:bg-secondaryHover hover:scale-[1.05] transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-indigo-300">
+                    聯絡我們
+                </a>
+                <a href="#about"
+                    class="inline-flex justify-center items-center px-8 py-4 bg-white border-2 border-secondary text-secondary font-semibold rounded-2xl hover:bg-indigo-50 hover:scale-[1.05] transition-all duration-300 text-center focus:outline-none focus:ring-4 focus:ring-indigo-100">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 fill-white">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,55.05,10.3,82.15,13.36,140.45,20,201.52,22,261.1,19.29A139.75,139.75,0,0,0,321.39,56.44Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm">About ABC Studio
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">創立宗旨與教學理念</h2>
+                <p class="text-slate-600 leading-relaxed text-base md:text-lg">
+                    ABC Studio 成立於2017 年。我們深信，舞蹈不僅僅是身體動作的展現，更是培養自信、釋放壓力和展現自我風采的絕佳途徑。
+                </p>
+                <div class="p-6 bg-indigo-50/50 rounded-3xl border border-indigo-100/50">
+                    <h3 class="text-lg font-bold text-secondary mb-2 flex items-center">
+                        <i class="fa-solid fa-face-smile mr-2"></i> 快樂學習、輕鬆學習
+                    </h3>
+                    <p class="text-slate-600 text-sm md:text-base">
+                        我們打破傳統舞蹈高壓、刻板的框架，營造一個充滿專業、輕鬆且充滿活力的教室氛圍。不論是想讓孩子在快樂中成長的家長，還是想一圓舞蹈夢想的各年齡層愛好者，都能在這裡找到屬於自己的節奏。
+                    </p>
+                </div>
+            </div>
+            <div class="relative group">
+                <div
+                    class="absolute inset-0 bg-primary/20 rounded-3xl transform rotate-3 scale-105 group-hover:rotate-1 transition-transform duration-500">
+                </div>
+                <img loading="lazy"
+                    src="class.jpeg"
+                    alt="About Studio" class="relative z-10 w-full h-96 object-cover rounded-3xl shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <section id="dance-types" class="py-16 md:py-24 bg-bgLight">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">探索我們的舞蹈類型</h2>
+                <p class="text-slate-500">點擊感興趣的舞種，系統將自動為您篩選對應的專業師資團隊！</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div onclick="filterInstructors('芭蕾', this)"
+                    class="dance-card cursor-pointer relative group h-80 rounded-3xl overflow-hidden shadow-sm hover-card-effect">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-secondary/90">
+                    </div>
+                    <img loading="lazy"
+                        src="ballet.jpeg"
+                        alt="芭蕾"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-start text-white">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full mb-2">優雅體態</span>
+                        <h3 class="text-xl font-bold">芭蕾舞</h3>
+                    </div>
+                </div>
+
+                <div onclick="filterInstructors('肚皮舞', this)"
+                    class="dance-card cursor-pointer relative group h-80 rounded-3xl overflow-hidden shadow-sm hover-card-effect">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-secondary/90">
+                    </div>
+                    <img loading="lazy"
+                        src="bellydance.jpeg"
+                        alt="肚皮舞"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-start text-white">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full mb-2">核心核心</span>
+                        <h3 class="text-xl font-bold">肚皮舞</h3>
+                    </div>
+                </div>
+
+                <div onclick="filterInstructors('拉丁舞', this)"
+                    class="dance-card cursor-pointer relative group h-80 rounded-3xl overflow-hidden shadow-sm hover-card-effect">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-secondary/90">
+                    </div>
+                    <img loading="lazy"
+                        src="latin.jpeg"
+                        alt="拉丁舞"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-start text-white">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full mb-2">熱情奔放</span>
+                        <h3 class="text-xl font-bold">拉丁舞</h3>
+                    </div>
+                </div>
+
+                <div onclick="filterInstructors('Kpop', this)"
+                    class="dance-card cursor-pointer relative group h-80 rounded-3xl overflow-hidden shadow-sm hover-card-effect">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-secondary/90">
+                    </div>
+                    <img loading="lazy"
+                        src="kpopdance.jpeg"
+                        alt="Kpop"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-start text-white">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full mb-2">潮流MV</span>
+                        <h3 class="text-xl font-bold">Kpop 流行舞</h3>
+                    </div>
+                </div>
+
+                <div onclick="filterInstructors('中國舞', this)"
+                    class="dance-card cursor-pointer relative group h-80 rounded-3xl overflow-hidden shadow-sm hover-card-effect">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:from-secondary/90">
+                    </div>
+                    <img loading="lazy"
+                        src="chinese.jpeg"
+                        alt="中國舞"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end items-start text-white">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full mb-2">古典身韻</span>
+                        <h3 class="text-xl font-bold">中國舞</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructors" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2">Our
+                    Instructors</div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">頂尖師資團隊</h2>
+            </div>
+            <div class="flex flex-wrap gap-3 items-center">
+                <span id="active-filter-indicator"
+                    class="text-sm bg-indigo-50 text-secondary px-3 py-1.5 rounded-full hidden">
+                    目前篩選：<span id="filter-tag-name" class="font-bold"></span>
+                </span>
+                <button onclick="resetInstructorFilter()" id="reset-filter-btn"
+                    class="px-5 py-2 text-sm bg-white border border-slate-200 text-slate-600 rounded-2xl hover:bg-slate-50 transition-colors duration-300 hidden">
+                    顯示全部教師
+                </button>
+            </div>
+        </div>
+
+        <div id="instructors-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-500">
+            <div class="instructor-card bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-card-effect"
+                data-types="芭蕾 中國舞">
+                <div class="h-80 bg-slate-100 relative overflow-hidden">
+                    <div class="skeleton absolute inset-0 opacity-0 transition-opacity duration-300" id="sk-1"></div>
+                    <img loading="lazy"
+                        src="emily.jpeg"
+                        alt="Emily" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-textDark mb-1">Emily 老師</h3>
+                        <p class="text-sm font-semibold text-secondary">主修：芭蕾舞、中國舞</p>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        擁有超過10年教學經驗，擅長引導幼兒及學童從基礎律動中找到舞蹈的樂趣與精隨。
+                    </p>
+                    <div class="text-xs space-y-1.5 border-t border-b border-slate-100 py-3 text-slate-600">
+                        <div>🏆 2022 全國舞蹈大賽古典組編舞金獎</div>
+                        <div>🏆 英國皇家芭蕾舞學院 RAD 高級認證</div>
+                        <div class="mt-2 text-secondary font-medium"><i class="fa-solid fa-calendar-days mr-1"></i>
+                            授課班級：幼兒芭蕾基礎班、成人古典舞</div>
+                    </div>
+                    <div class="flex space-x-3 text-slate-400">
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructor-card bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-card-effect"
+                data-types="Kpop 拉丁舞">
+                <div class="h-80 bg-slate-100 relative overflow-hidden">
+                    <img loading="lazy"
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=800&q=80"
+                        alt="Leo" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-textDark mb-1">Leo 老師</h3>
+                        <p class="text-sm font-semibold text-secondary">主修：Kpop 流行舞、拉丁舞</p>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        前知名舞團核心團員，教學風格充滿舞台渲染力，著重節奏感培養與舞台表現力。
+                    </p>
+                    <div class="text-xs space-y-1.5 border-t border-b border-slate-100 py-3 text-slate-600">
+                        <div>🏆 曾任多位跨國藝人MV專屬編舞隨行導師</div>
+                        <div>🏆 亞洲街舞大賽風格組前三強</div>
+                        <div class="mt-2 text-secondary font-medium"><i class="fa-solid fa-calendar-days mr-1"></i>
+                            授課班級：兒童 Kpop 班、成人拉丁熱舞</div>
+                    </div>
+                    <div class="flex space-x-3 text-slate-400">
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructor-card bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-card-effect"
+                data-types="肚皮舞">
+                <div class="h-80 bg-slate-100 relative overflow-hidden">
+                    <img loading="lazy"
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&h=800&q=80"
+                        alt="Mia" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-textDark mb-1">Mia 老師</h3>
+                        <p class="text-sm font-semibold text-secondary">主修：中東肚皮舞</p>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        著重核心肌群運用與優美線條雕塑，以親切、細心的步驟化教學深受初學者愛戴。
+                    </p>
+                    <div class="text-xs space-y-1.5 border-t border-b border-slate-100 py-3 text-slate-600">
+                        <div>🏆 埃及開羅國際東方舞大賽優勝</div>
+                        <div>🏆 高級體態雕塑指導員認證</div>
+                        <div class="mt-2 text-secondary font-medium"><i class="fa-solid fa-calendar-days mr-1"></i>
+                            授課班級：基礎中東肚皮舞班、成人核心班</div>
+                    </div>
+                    <div class="flex space-x-3 text-slate-400">
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-secondary transition-colors"><i
+                                class="fa-brands fa-facebook text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="no-instructor-fallback"
+            class="hidden py-16 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-200">
+            <i class="fa-solid fa-user-slash text-4xl text-slate-300 mb-3"></i>
+            <p class="text-slate-500 font-medium">目前尚無此舞種教師</p>
+            <button onclick="resetInstructorFilter()"
+                class="mt-4 text-sm font-semibold text-secondary hover:underline">返回查看所有教師</button>
+        </div>
+    </section>
+
+    <section id="schedule" class="py-16 md:py-24 bg-bgLight">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">班別課表資訊</h2>
+                <p class="text-slate-500">點擊特定課程格子可查閱更詳盡資訊（包含樓層、適用年齡）並進行線上預約試課。</p>
+                <p class="text-sm text-secondary font-medium mt-2"><i class="fa-solid fa-circle-info mr-1"></i>
+                    如需一對一或一對多私人訂製課程，請直接與院方聯絡。</p>
+            </div>
+
+            <div class="hidden md:block overflow-x-auto bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
+                <div class="grid grid-cols-8 gap-4 min-w-[900px] text-center">
+                    <div class="font-bold py-3 text-slate-400 text-sm">時間</div>
+                    <div class="font-bold py-3 text-slate-700">週一 (Mon)</div>
+                    <div class="font-bold py-3 text-slate-700">週二 (Tue)</div>
+                    <div class="font-bold py-3 text-slate-700">週三 (Wed)</div>
+                    <div class="font-bold py-3 text-slate-700">週四 (Thu)</div>
+                    <div class="font-bold py-3 text-slate-700">週五 (Fri)</div>
+                    <div class="font-bold py-3 text-slate-700">週六 (Sat)</div>
+                    <div class="font-bold py-3 text-slate-700">週日 (Sun)</div>
+
+                    <div
+                        class="flex items-center justify-center font-medium text-xs text-slate-400 border-r border-slate-100">
+                        10:00<br>-<br>11:30</div>
+                    <div class="bg-emerald-50 text-emerald-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-emerald-100 transition-all duration-300"
+                        onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
+                        <span class="block text-xs font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md mb-1">成人</span>
+                        <p class="font-semibold text-sm">肚皮舞</p>
+                        <p class="text-xs opacity-70">Mia 老師</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+                    <div class="bg-blue-50 text-blue-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-blue-100 transition-all duration-300"
+                        onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 芭蕾', '不限年齡', '成人芭蕾入門基礎')">
+                        <span class="block text-xs font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md mb-1">基礎</span>
+                        <p class="font-semibold text-sm">基礎芭蕾</p>
+                        <p class="text-xs opacity-70">Emily 老師</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+                    <div class="bg-emerald-50 text-emerald-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-emerald-100 transition-all duration-300"
+                        onclick="openScheduleModal('10:00 - 11:30', 'Leo 老師', '3 樓 A 教室', '成人班 / 拉丁舞', '16歲以上', '成人拉丁舞放鬆')">
+                        <span class="block text-xs font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md mb-1">成人</span>
+                        <p class="font-semibold text-sm">拉丁舞</p>
+                        <p class="text-xs opacity-70">Leo 老師</p>
+                    </div>
+                    <div class="bg-pink-50 text-pink-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-pink-100 transition-all duration-300"
+                        onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
+                        <span class="block text-xs font-bold bg-pink-200/50 px-1.5 py-0.5 rounded-md mb-1">幼兒</span>
+                        <p class="font-semibold text-sm">幼兒芭蕾</p>
+                        <p class="text-xs opacity-70">Emily 老師</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+
+                    <div
+                        class="flex items-center justify-center font-medium text-xs text-slate-400 border-r border-slate-100">
+                        14:00<br>-<br>15:30</div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+                    <div class="bg-purple-50 text-purple-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-purple-100 transition-all duration-300"
+                        onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                        <span class="block text-xs font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md mb-1">中級</span>
+                        <p class="font-semibold text-sm">Kpop 流行</p>
+                        <p class="text-xs opacity-70">Leo 老師</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+                    <div class="bg-orange-50 text-orange-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-orange-100 transition-all duration-300"
+                        onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
+                        <span class="block text-xs font-bold bg-orange-200/50 px-1.5 py-0.5 rounded-md mb-1">高級</span>
+                        <p class="font-semibold text-sm">中國舞</p>
+                        <p class="text-xs opacity-70">Emily 老師</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl"></div>
+                    <div class="bg-purple-50 text-purple-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-purple-100 transition-all duration-300"
+                        onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                        <span class="block text-xs font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md mb-1">中級</span>
+                        <p class="font-semibold text-sm">Kpop 流行</p>
+                        <p class="text-xs opacity-70">Leo 老師</p>
+                    </div>
+                    <div class="bg-blue-50 text-blue-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-blue-100 transition-all duration-300"
+                        onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 中國舞', '不限年齡', '基礎中國傳統舞入門')">
+                        <span class="block text-xs font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md mb-1">基礎</span>
+                        <p class="font-semibold text-sm">中國舞基礎</p>
+                        <p class="text-xs opacity-70">Emily 老師</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:hidden space-y-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-base text-slate-700 border-b border-slate-100 pb-2 mb-3"><i
+                            class="fa-solid fa-calendar-day mr-2 text-secondary"></i>週間熱門推薦課程 (手機版縮影)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-pink-50 text-pink-700 rounded-xl"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
+                            <div>
+                                <span class="text-[10px] bg-pink-200/50 px-1.5 py-0.5 rounded font-bold">幼兒</span>
+                                <h4 class="font-bold text-sm mt-0.5">幼兒芭蕾 (週六 10:00)</h4>
+                                <p class="text-xs opacity-80">教師: Emily 老師</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-purple-50 text-purple-700 rounded-xl"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div>
+                                <span class="text-[10px] bg-purple-200/50 px-1.5 py-0.5 rounded font-bold">中級</span>
+                                <h4 class="font-bold text-sm mt-0.5">Kpop 流行舞 (週二/六 14:00)</h4>
+                                <p class="text-xs opacity-80">教師: Leo 老師</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-emerald-50 text-emerald-700 rounded-xl"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
+                            <div>
+                                <span class="text-[10px] bg-emerald-200/50 px-1.5 py-0.5 rounded font-bold">成人</span>
+                                <h4 class="font-bold text-sm mt-0.5">極塑肚皮舞 (週一 10:00)</h4>
+                                <p class="text-xs opacity-80">教師: Mia 老師</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="schedule-modal"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div
+            class="bg-white w-full max-w-md rounded-3xl p-6 shadow-xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeScheduleModal()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 rounded-full focus:outline-none">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="mb-5">
+                <span id="modal-level-tag"
+                    class="inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 bg-indigo-50 text-secondary"></span>
+                <h3 id="modal-class-name" class="text-2xl font-bold text-textDark">課程詳情</h3>
+            </div>
+
+            <div class="space-y-3 text-sm border-t border-b border-slate-100 py-4 mb-6">
+                <div class="flex justify-between"><span class="text-slate-400">上課時間：</span><span id="modal-time"
+                        class="font-medium text-textDark"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">授課導師：</span><span id="modal-teacher"
+                        class="font-medium text-textDark"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">教室樓層：</span><span id="modal-floor"
+                        class="font-medium text-textDark"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">難度舞種：</span><span id="modal-type"
+                        class="font-medium text-secondary"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">適用對象：</span><span id="modal-age"
+                        class="font-medium text-textDark"></span></div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <a href="https://docs.google.com/forms" target="_blank"
+                    class="w-full text-center py-3.5 bg-secondary text-white font-semibold rounded-2xl hover:bg-secondaryHover shadow-md transition-all duration-300 text-sm">
+                    立即線上預約試課 (Google Form)
+                </a>
+                <a href="https://wa.me/123456789" target="_blank"
+                    class="w-full text-center py-3.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-2xl hover:bg-slate-50 transition-all duration-300 text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i> WhatsApp 諮詢
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="social-proof" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2">Social Proof
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">學員榮耀與環境見證</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 text-center">
+            <div class="bg-bgLight p-6 rounded-3xl border border-slate-100">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">1,200+</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium">累計孕育學員數</div>
+            </div>
+            <div class="bg-bgLight p-6 rounded-3xl border border-slate-100">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">9+</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium">深耕教學年資 (自2017)</div>
+            </div>
+            <div class="bg-bgLight p-6 rounded-3xl border border-slate-100">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">45+</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium">國內外賽事獲獎</div>
+            </div>
+            <div class="bg-bgLight p-6 rounded-3xl border border-slate-100">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">100%</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium">快樂安全學習宗旨</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div class="h-64 rounded-3xl overflow-hidden group shadow-sm">
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=500&q=80"
+                    alt="比賽相片"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="h-64 rounded-3xl overflow-hidden group shadow-sm">
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80"
+                    alt="成果發表"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="h-64 rounded-3xl overflow-hidden group shadow-sm">
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=500&q=80"
+                    alt="舒適明亮教室環境"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="h-64 rounded-3xl overflow-hidden group shadow-sm">
+                <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&w=500&q=80"
+                    alt="課堂練習"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white border border-slate-100 p-6 md:p-8 rounded-3xl shadow-sm relative">
+                <i class="fa-solid fa-quote-left text-primary/30 text-4xl absolute top-6 right-8"></i>
+                <div class="flex items-center space-x-4 mb-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-secondary">
+                        林</div>
+                    <div>
+                        <h4 class="font-bold text-textDark text-base">林媽媽 (學員小晴母親)</h4>
+                        <span class="text-xs text-slate-400">幼兒芭蕾基礎班家長</span>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    「原本擔心女兒去外面學跳舞會因為嚴格而排斥，但 ABC Studio 的 Emily 老師真的太棒了！用很溫和快樂的方式引導，小晴每天都吵著要來上課，自信心提升非常多！」
+                </p>
+            </div>
+
+            <div class="bg-white border border-slate-100 p-6 md:p-8 rounded-3xl shadow-sm relative">
+                <i class="fa-solid fa-quote-left text-primary/30 text-4xl absolute top-6 right-8"></i>
+                <div class="flex items-center space-x-4 mb-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-secondary">
+                        張</div>
+                    <div>
+                        <h4 class="font-bold text-textDark text-base">張小姐</h4>
+                        <span class="text-xs text-slate-400">成人 Kpop 班學員</span>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    「出社會後一直想維持運動習慣，這裡的環境超級乾淨透亮，完全沒有壓迫感。Leo 老師教動作非常細膩，就算是零基礎的我也能輕鬆跟上進度，每次下課心情都超好！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 md:py-24 bg-bgLight">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2">FAQ</div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">常見顧慮與解答</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div
+                    class="faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm transition-all duration-300">
+                    <button
+                        class="w-full flex items-center justify-between p-5 text-left font-bold text-textDark text-base focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span>Q1. 第一次上課需要準備專門的舞蹈服裝嗎？</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 transform rotate-180"
+                            id="icon-faq"></i>
+                    </button>
+                    <div class="faq-content transition-all duration-300 ease-out max-h-40 px-5 pb-5">
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            體驗課或第一堂入門課不需要特別購買專業舞衣！建議穿著舒適、有彈性的運動服裝及乾淨的運動鞋/棉襪即可。正式報名後，各班別老師會統一針對舞鞋或特定服飾進行細心指導與建議。
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm transition-all duration-300">
+                    <button
+                        class="w-full flex items-center justify-between p-5 text-left font-bold text-textDark text-base focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span>Q2. 上課時間可以請假或進行補課嗎？</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"
+                            id="icon-faq"></i>
+                    </button>
+                    <div class="faq-content transition-all duration-300 ease-out max-h-0 px-5 pb-0 hidden">
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            可以的。為了確保每位學員的權益，若需要請假，請於課程開始前 24 小時透過官方 LINE 或致電告知。我們將為您安排於同一期別內的其他時段進行平行補課。
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm transition-all duration-300">
+                    <button
+                        class="w-full flex items-center justify-between p-5 text-left font-bold text-textDark text-base focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span>Q3. 收費標準與體驗課費用如何計算？</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"
+                            id="icon-faq"></i>
+                    </button>
+                    <div class="faq-content transition-all duration-300 ease-out max-h-0 px-5 pb-0 hidden">
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            我們提供單堂單次體驗（體驗價優惠中），正式課程依期別或堂數套票計算，平均每堂收費公開透明。詳細價格方案因班別難度及人數有所調整，歡迎點擊預約表單或透過 WhatsApp
+                            索取最新完整價目表。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div class="space-y-8">
+                <div>
+                    <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2">Contact
+                        Us</div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">聯絡abc studio</h2>
+                    <p class="text-slate-500 mt-2">竭誠歡迎您預約參觀環境或前來諮詢試課，與我們攜手踏出快樂的第一步！</p>
+                </div>
+
+                <div class="space-y-4 text-base text-slate-600">
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-secondary mt-1 text-lg w-5 text-center"></i>
+                        <div>
+                            <p class="font-bold text-textDark">教室地址</p>
+                            <p class="text-sm">台北市大安區忠孝東路四段 123 號 3 樓</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-phone text-secondary mt-1 text-lg w-5 text-center"></i>
+                        <div>
+                            <p class="font-bold text-textDark">聯絡電話</p>
+                            <p class="text-sm">(02) 2771-2345</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-clock text-secondary mt-1 text-lg w-5 text-center"></i>
+                        <div>
+                            <p class="font-bold text-textDark">營業時間</p>
+                            <p class="text-sm">週一至週五 13:00 - 21:30</p>
+                            <p class="text-sm">週六至週日 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="w-full h-80 md:h-96 rounded-3xl overflow-hidden shadow-sm border border-slate-100 relative group">
+                <iframe id="google-map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7036496515355!2d121.54133447602055!3d25.044129237885994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97cd17c6b5b%3A0x6b10eb0b3ff64687!2z6Ie6 thoseIG_pY_mlo_pY_mlo_pY_mlo_pY8!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw"
+                    class="w-full h-full border-0 absolute inset-0 z-10" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" onerror="handleMapError()">
+                </iframe>
+
+                <div id="map-fallback"
+                    class="absolute inset-0 bg-slate-100 z-0 flex flex-col justify-center items-center text-center p-6 hidden">
+                    <i class="fa-solid fa-map-location-dot text-4xl text-slate-300 mb-3"></i>
+                    <p class="text-slate-500 font-medium mb-4 text-sm">地圖載入失敗或受阻？</p>
+                    <a href="https://maps.google.com" target="_blank"
+                        class="px-5 py-2.5 bg-secondary text-white text-xs font-semibold rounded-xl shadow-md hover:bg-secondaryHover transition-colors">
+                        在獨立新分頁開啟 Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div
+                    class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    abc</div>
+                <span class="font-bold text-base text-white tracking-wide">abc studio</span>
+            </div>
+
+            <p class="text-xs text-center md:text-left text-slate-500">
+                &copy; 2026 abc studio. All rights reserved. 版權所有，翻印必究。
+            </p>
+
+            <div class="flex space-x-4">
+                <a href="https://facebook.com" target="_blank"
+                    class="w-9 h-9 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300"
+                    aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank"
+                    class="w-9 h-9 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300"
+                    aria-label="Instagram">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/123456789" target="_blank"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-xl flex items-center justify-center text-white text-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-emerald-200"
+        aria-label="Contact via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // 1. Sticky & Glassmorphism Navbar + Active State Underline on Scroll
+        const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navContainer.classList.remove('bg-white/70');
+                navContainer.classList.add('bg-white/95', 'shadow-md', 'py-1.5');
+            } else {
+                navContainer.classList.remove('bg-white/95', 'shadow-md', 'py-1.5');
+                navContainer.classList.add('bg-white/70');
+            }
+
+            // Highlighting Navigation Links depending on Scroll Position
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-secondary');
+                if (link.getAttribute('href').includes(current) && current !== '') {
+                    link.classList.add('active', 'text-secondary');
+                }
+            });
+        });
+
+        // 2. Mobile Menu Handling (全面優化修復版)
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // 打開手機選單
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden'; // 打開時鎖定網頁底層，防止亂滾動
+        });
+
+        // 關閉手機選單
+        function closeMenu() {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = ''; // 關閉時解鎖網頁滾動
+        }
+        closeMenuBtn.addEventListener('click', closeMenu);
+
+        // 核心修正：專門處理手機版平滑跳轉與精準定位
+        function scrollToSection(selector) {
+            // 1. 第一步先關閉選單，還原身體滾動權
+            closeMenu();
+
+            // 2. 稍微延遲 100 毫秒，等選單動畫開始淡出時，同步優雅地執行滾動
+            setTimeout(() => {
+                const targetElement = document.querySelector(selector);
+                if (targetElement) {
+                    // 自動計算上方黏性導覽列（Navbar）的高度（一般約 80px-90px），避免標題被遮住
+                    const navbarOffset = 85;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // 3. Hero Slide Show Automatic Carousel Logic (5 Seconds Interval)
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            carouselItems[currentSlide].classList.remove('opacity-100');
+            carouselItems[currentSlide].classList.add('opacity-0');
+            currentSlide = (currentSlide + 1) % carouselItems.length;
+            carouselItems[currentSlide].classList.remove('opacity-0');
+            carouselItems[currentSlide].classList.add('opacity-100');
+        }
+        setInterval(nextSlide, 5000);
+
+        // 4. Linkage Logic: Dance Types Filter Triggering Instructors Card Updates
+        let currentFilteredType = null;
+
+        function filterInstructors(danceType, cardElement) {
+            const grid = document.getElementById('instructors-grid');
+            const cards = document.querySelectorAll('.instructor-card');
+            const fallback = document.getElementById('no-instructor-fallback');
+            const indicator = document.getElementById('active-filter-indicator');
+            const filterName = document.getElementById('filter-tag-name');
+            const resetBtn = document.getElementById('reset-filter-btn');
+
+            // Scroll Smoothly to Instructors container first
+            document.getElementById('instructors').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Toggle logic: If click the same active type, reset filter completely
+            if (currentFilteredType === danceType) {
+                resetInstructorFilter();
+                return;
+            }
+
+            currentFilteredType = danceType;
+            let matchCount = 0;
+
+            // Apply opacity out transition effect
+            grid.style.opacity = '0';
+            grid.style.transform = 'scale(0.98)';
+
+            setTimeout(() => {
+                cards.forEach(card => {
+                    const rawTypes = card.getAttribute('data-types');
+                    if (rawTypes && rawTypes.includes(danceType)) {
+                        card.classList.remove('hidden');
+                        matchCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Display management
+                if (matchCount === 0) {
+                    grid.classList.add('hidden');
+                    fallback.classList.remove('hidden');
+                } else {
+                    grid.classList.remove('hidden');
+                    fallback.classList.add('hidden');
+                }
+
+                // Show top indicators
+                filterName.innerText = danceType;
+                indicator.classList.remove('hidden');
+                resetBtn.classList.remove('hidden');
+
+                // Apply opacity back in
+                grid.style.opacity = '1';
+                grid.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        function resetInstructorFilter() {
+            const grid = document.getElementById('instructors-grid');
+            const cards = document.querySelectorAll('.instructor-card');
+            const fallback = document.getElementById('no-instructor-fallback');
+            const indicator = document.getElementById('active-filter-indicator');
+            const resetBtn = document.getElementById('reset-filter-btn');
+
+            currentFilteredType = null;
+            grid.style.opacity = '0';
+
+            setTimeout(() => {
+                cards.forEach(card => card.classList.remove('hidden'));
+                grid.classList.remove('hidden');
+                fallback.classList.add('hidden');
+                indicator.classList.add('hidden');
+                resetBtn.classList.add('hidden');
+                grid.style.opacity = '1';
+            }, 300);
+        }
+
+        // 5. Class Schedule Detail View Modal Interactivity 
+        const scheduleModal = document.getElementById('schedule-modal');
+        const innerModal = scheduleModal.querySelector('div');
+
+        function openScheduleModal(time, teacher, floor, type, age, className) {
+            document.getElementById('modal-time').innerText = time;
+            document.getElementById('modal-teacher').innerText = teacher;
+            document.getElementById('modal-floor').innerText = floor;
+            document.getElementById('modal-type').innerText = type;
+            document.getElementById('modal-age').innerText = age;
+            document.getElementById('modal-class-name').innerText = className;
+
+            // Extract core category
+            const category = type.split(' / ')[0] || '課程';
+            document.getElementById('modal-level-tag').innerText = category;
+
+            scheduleModal.classList.remove('hidden', 'pointer-events-none');
+            setTimeout(() => {
+                scheduleModal.classList.remove('opacity-0');
+                scheduleModal.classList.add('opacity-100');
+                innerModal.classList.remove('scale-95');
+                innerModal.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeScheduleModal() {
+            scheduleModal.classList.remove('opacity-100');
+            scheduleModal.classList.add('opacity-0');
+            innerModal.classList.remove('scale-100');
+            innerModal.classList.add('scale-95');
+            setTimeout(() => {
+                scheduleModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal when background overlay is clicked
+        scheduleModal.addEventListener('click', (e) => {
+            if (e.target === scheduleModal) closeScheduleModal();
+        });
+
+        // 6. FAQ Accordion Single Element Open Trigger Action Logic
+        function toggleFaq(buttonElement) {
+            const currentItem = buttonElement.parentElement;
+            const content = currentItem.querySelector('.faq-content');
+            const icon = currentItem.querySelector('#icon-faq');
+            const allItems = document.querySelectorAll('.faq-item');
+
+            // Close all other items first
+            allItems.forEach(item => {
+                if (item !== currentItem) {
+                    const c = item.querySelector('.faq-content');
+                    const i = item.querySelector('#icon-faq');
+                    c.classList.add('hidden');
+                    c.style.maxHeight = '0px';
+                    i.classList.remove('rotate-180');
+                }
+            });
+
+            // Toggle current target element
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                setTimeout(() => {
+                    content.style.maxHeight = '200px';
+                }, 10);
+                icon.classList.add('rotate-180');
+            } else {
+                content.style.maxHeight = '0px';
+                setTimeout(() => {
+                    content.classList.add('hidden');
+                }, 300);
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // 7. Fallback Error Handling logic for Google Map Network Frame Failures
+        function handleMapError() {
+            document.getElementById('google-map-iframe').classList.add('hidden');
+            document.getElementById('map-fallback').classList.remove('hidden');
+        }
+        // Force test or auto checker binding asynchronously
+        window.addEventListener('DOMContentLoaded', () => {
+            // Optional: validation checker if iframe fails silently
+            const mapIframe = document.getElementById('google-map-iframe');
+            if (!mapIframe.src) {
+                handleMapError();
+            }
+        });
+    </script>
+</body>
+
+</html>
