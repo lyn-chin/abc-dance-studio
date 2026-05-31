@@ -216,7 +216,7 @@
         </div>
     </section>
 
-    <section id="about" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+    <section id="about" class="pt-6 pb-16 md:pt-36 md:pb-24 max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6 py-10">
                 <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm">About ABC Studio
@@ -244,7 +244,7 @@
         </div>
     </section>
 
-    <section id="dance-types" class="py-16 md:py-24 bg-bgLight">
+    <section id="dance-types" class="pt-4 pb-16 md:py-24 bg-bgLight">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 pt-5">探索我們的舞蹈類型</h2>
@@ -320,7 +320,7 @@
         </div>
     </section>
 
-    <section id="instructors" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+    <section id="instructors" class="pt-4 pb-16 md:py-24 max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
                 <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2 pt-5">Our
@@ -443,8 +443,48 @@
         </div>
     </section>
 
-    <section id="schedule" class="py-16 md:py-24 bg-bgLight">
+    <section id="schedule" class="pt-4 pb-16 md:py-24 bg-bgLight">
         <div class="max-w-7xl mx-auto px-6">
+            <div id="schedule-modal"
+                class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+                <div
+                    class="bg-white w-full max-w-md rounded-3xl p-6 shadow-xl relative transform scale-95 transition-transform duration-300">
+                    <button onclick="closeScheduleModal()"
+                        class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 rounded-full focus:outline-none">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    <div class="mb-5">
+                        <span id="modal-level-tag"
+                            class="inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 bg-indigo-50 text-secondary"></span>
+                        <h3 id="modal-class-name" class="text-2xl font-bold text-slate-800">課程詳情</h3>
+                    </div>
+
+                    <div class="space-y-3 text-sm border-t border-b border-slate-100 py-4 mb-6">
+                        <div class="flex justify-between"><span class="text-slate-400">上課時間：</span><span id="modal-time"
+                                class="font-medium text-slate-800"></span></div>
+                        <div class="flex justify-between"><span class="text-slate-400">授課導師：</span><span
+                                id="modal-teacher" class="font-medium text-slate-800"></span></div>
+                        <div class="flex justify-between"><span class="text-slate-400">教室樓層：</span><span
+                                id="modal-floor" class="font-medium text-slate-800"></span></div>
+                        <div class="flex justify-between"><span class="text-slate-400">難度舞種：</span><span id="modal-type"
+                                class="font-medium text-secondary"></span></div>
+                        <div class="flex justify-between"><span class="text-slate-400">適用對象：</span><span id="modal-age"
+                                class="font-medium text-slate-800"></span></div>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <a href="https://docs.google.com/forms" target="_blank"
+                            class="w-full text-center py-3.5 bg-secondary text-white font-semibold rounded-2xl hover:bg-rose-600 shadow-md transition-all duration-300 text-sm">
+                            立即線上預約試課 (Google Form)
+                        </a>
+                        <a href="https://wa.me/123456789" target="_blank"
+                            class="w-full text-center py-3.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-2xl hover:bg-slate-50 transition-all duration-300 text-sm flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i> WhatsApp 諮詢
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 pt-5">班別課表資訊</h2>
                 <p class="text-slate-500">點擊特定課程格子可查閱更詳盡資訊（包含樓層、適用年齡）並進行線上預約試課。</p>
@@ -453,159 +493,342 @@
             </div>
 
             <div class="hidden md:block overflow-x-auto bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
-                <div class="grid grid-cols-8 gap-4 min-w-[900px] text-center">
-                    <div class="font-bold py-3 text-slate-400 text-sm">時間</div>
-                    <div class="font-bold py-3 text-slate-700">週一 (Mon)</div>
-                    <div class="font-bold py-3 text-slate-700">週二 (Tue)</div>
-                    <div class="font-bold py-3 text-slate-700">週三 (Wed)</div>
-                    <div class="font-bold py-3 text-slate-700">週四 (Thu)</div>
-                    <div class="font-bold py-3 text-slate-700">週五 (Fri)</div>
-                    <div class="font-bold py-3 text-slate-700">週六 (Sat)</div>
-                    <div class="font-bold py-3 text-slate-700">週日 (Sun)</div>
+                <div class="grid grid-cols-7 gap-4 min-w-[1000px]">
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週一 (Mon)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週二 (Tue)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週三 (Wed)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週四 (Thu)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週五 (Fri)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週六 (Sat)
+                    </div>
+                    <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週日 (Sun)
+                    </div>
 
-                    <div
-                        class="flex items-center justify-center font-medium text-xs text-slate-400 border-r border-slate-100">
-                        10:00<br>-<br>11:30</div>
-                    <div class="bg-emerald-50 text-emerald-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-emerald-100 transition-all duration-300"
-                        onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
-                        <span class="block text-xs font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md mb-1">成人</span>
-                        <p class="font-semibold text-sm">肚皮舞</p>
-                        <p class="text-xs opacity-70">Mia 老師</p>
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">肚皮舞</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 10:00-11:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Mia 老師</div>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
-                    <div class="bg-blue-50 text-blue-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-blue-100 transition-all duration-300"
-                        onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 芭蕾', '不限年齡', '成人芭蕾入門基礎')">
-                        <span class="block text-xs font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md mb-1">基礎</span>
-                        <p class="font-semibold text-sm">基礎芭蕾</p>
-                        <p class="text-xs opacity-70">Emily 老師</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
-                    <div class="bg-emerald-50 text-emerald-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-emerald-100 transition-all duration-300"
-                        onclick="openScheduleModal('10:00 - 11:30', 'Leo 老師', '3 樓 A 教室', '成人班 / 拉丁舞', '16歲以上', '成人拉丁舞放鬆')">
-                        <span class="block text-xs font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md mb-1">成人</span>
-                        <p class="font-semibold text-sm">拉丁舞</p>
-                        <p class="text-xs opacity-70">Leo 老師</p>
-                    </div>
-                    <div class="bg-pink-50 text-pink-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-pink-100 transition-all duration-300"
-                        onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
-                        <span class="block text-xs font-bold bg-pink-200/50 px-1.5 py-0.5 rounded-md mb-1">幼兒</span>
-                        <p class="font-semibold text-sm">幼兒芭蕾</p>
-                        <p class="text-xs opacity-70">Emily 老師</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
 
-                    <div
-                        class="flex items-center justify-center font-medium text-xs text-slate-400 border-r border-slate-100">
-                        14:00<br>-<br>15:30</div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
-                    <div class="bg-purple-50 text-purple-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-purple-100 transition-all duration-300"
-                        onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
-                        <span class="block text-xs font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md mb-1">中級</span>
-                        <p class="font-semibold text-sm">Kpop 流行</p>
-                        <p class="text-xs opacity-70">Leo 老師</p>
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">Kpop 流行</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師</div>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
-                    <div class="bg-orange-50 text-orange-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-orange-100 transition-all duration-300"
-                        onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
-                        <span class="block text-xs font-bold bg-orange-200/50 px-1.5 py-0.5 rounded-md mb-1">高級</span>
-                        <p class="font-semibold text-sm">中國舞</p>
-                        <p class="text-xs opacity-70">Emily 老師</p>
+
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 芭蕾', '不限年齡', '成人芭蕾入門基礎')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">基礎芭蕾</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 10:00-11:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl"></div>
-                    <div class="bg-purple-50 text-purple-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-purple-100 transition-all duration-300"
-                        onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
-                        <span class="block text-xs font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md mb-1">中級</span>
-                        <p class="font-semibold text-sm">Kpop 流行</p>
-                        <p class="text-xs opacity-70">Leo 老師</p>
+
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-orange-50 text-orange-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-orange-100 transition-all duration-300"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-orange-200/50 px-1.5 py-0.5 rounded-md">高級</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">中國舞</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
+                        </div>
                     </div>
-                    <div class="bg-blue-50 text-blue-700 p-3 rounded-2xl cursor-pointer hover:scale-105 border border-blue-100 transition-all duration-300"
-                        onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 中國舞', '不限年齡', '基礎中國傳統舞入門')">
-                        <span class="block text-xs font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md mb-1">基礎</span>
-                        <p class="font-semibold text-sm">中國舞基礎</p>
-                        <p class="text-xs opacity-70">Emily 老師</p>
+
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Leo 老師', '3 樓 A 教室', '成人班 / 拉丁舞', '16歲以上', '成人拉丁舞放鬆')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">拉丁舞</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 10:00-11:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-pink-50 text-pink-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-pink-100 transition-all duration-300"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-pink-200/50 px-1.5 py-0.5 rounded-md">幼兒</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">幼兒芭蕾</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 10:00-11:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
+                        </div>
+
+                        <div class="bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">Kpop 流行</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
+                        <div class="bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 中國舞', '不限年齡', '基礎中國傳統舞入門')">
+                            <div class="mb-1.5">
+                                <span class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">中國舞基礎</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="desktop-detail-wrapper"
+                class="hidden md:block overflow-hidden transition-all duration-500 max-h-0 opacity-0">
+                <div
+                    class="bg-indigo-50/50 rounded-3xl p-6 md:p-8 border border-indigo-100 mt-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span id="inline-level-tag"
+                                class="text-xs font-bold px-3 py-1 bg-white text-secondary rounded-lg shadow-sm border border-indigo-50"></span>
+                            <span class="text-sm font-medium text-slate-500"><i class="fa-regular fa-clock mr-1"></i>
+                                <span id="inline-time"></span></span>
+                        </div>
+                        <h3 id="inline-class-name" class="text-2xl font-bold text-slate-800 mb-3"></h3>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+                            <p><i class="fa-solid fa-chalkboard-user mr-1.5 text-indigo-400"></i> 導師：<span
+                                    id="inline-teacher" class="font-bold text-slate-700"></span></p>
+                            <p><i class="fa-solid fa-location-dot mr-1.5 text-indigo-400"></i> 教室：<span
+                                    id="inline-floor" class="font-bold text-slate-700"></span></p>
+                            <p><i class="fa-solid fa-users mr-1.5 text-indigo-400"></i> 對象：<span id="inline-age"
+                                    class="font-bold text-slate-700"></span></p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 min-w-[200px]">
+                        <a href="https://docs.google.com/forms" target="_blank"
+                            class="text-center py-3 bg-secondary text-white font-bold rounded-2xl hover:bg-rose-600 transition-colors shadow-md text-sm">
+                            立即線上預約
+                        </a>
+                        <button onclick="closeDesktopPanel()"
+                            class="text-center py-2.5 bg-white border border-slate-200 text-slate-500 font-bold rounded-2xl hover:bg-slate-50 transition-colors text-sm">
+                            收起詳情
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div class="md:hidden space-y-4">
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                    <h3 class="font-bold text-base text-slate-700 border-b border-slate-100 pb-2 mb-3"><i
-                            class="fa-solid fa-calendar-day mr-2 text-secondary"></i>週間熱門推薦課程 (手機版縮影)</h3>
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between p-3 bg-pink-50 text-pink-700 rounded-xl"
-                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
-                            <div>
-                                <span class="text-[10px] bg-pink-200/50 px-1.5 py-0.5 rounded font-bold">幼兒</span>
-                                <h4 class="font-bold text-sm mt-0.5">幼兒芭蕾 (週六 10:00)</h4>
-                                <p class="text-xs opacity-80">教師: Emily 老師</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-purple-50 text-purple-700 rounded-xl"
-                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
-                            <div>
-                                <span class="text-[10px] bg-purple-200/50 px-1.5 py-0.5 rounded font-bold">中級</span>
-                                <h4 class="font-bold text-sm mt-0.5">Kpop 流行舞 (週二/六 14:00)</h4>
-                                <p class="text-xs opacity-80">教師: Leo 老師</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-emerald-50 text-emerald-700 rounded-xl"
+                <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-none snap-x">
+                    <button onclick="changeMobileDay(0)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-secondary text-white transition-all duration-300"
+                        data-day="0">週一 Mon</button>
+                    <button onclick="changeMobileDay(1)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="1">週二 Tue</button>
+                    <button onclick="changeMobileDay(2)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="2">週三 Wed</button>
+                    <button onclick="changeMobileDay(3)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="3">週四 Thu</button>
+                    <button onclick="changeMobileDay(4)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="4">週五 Fri</button>
+                    <button onclick="changeMobileDay(5)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="5">週六 Sat</button>
+                    <button onclick="changeMobileDay(6)"
+                        class="mobile-tab-btn snap-center flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-600 transition-all duration-300"
+                        data-day="6">週日 Sun</button>
+                </div>
+
+                <!-- 各日課程清單內容 -->
+                <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100">
+
+                    <!-- 週一 -->
+                    <div id="mobile-day-0" class="mobile-day-panel space-y-3">
+                        <div class="flex items-center justify-between p-4 bg-emerald-50 text-emerald-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
                             onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
                             <div>
-                                <span class="text-[10px] bg-emerald-200/50 px-1.5 py-0.5 rounded font-bold">成人</span>
-                                <h4 class="font-bold text-sm mt-0.5">極塑肚皮舞 (週一 10:00)</h4>
-                                <p class="text-xs opacity-80">教師: Mia 老師</p>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-[10px] bg-emerald-200/50 px-2 py-0.5 rounded-md font-bold">成人</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>10:00 - 11:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">成人核心美體班 (肚皮舞)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Mia 老師
+                                </div>
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
                         </div>
                     </div>
+
+                    <!-- 週二 -->
+                    <div id="mobile-day-1" class="mobile-day-panel space-y-3 hidden">
+                        <div class="flex items-center justify-between p-4 bg-purple-50 text-purple-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-[10px] bg-purple-200/50 px-2 py-0.5 rounded-md font-bold">中級</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>14:00 - 15:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">中級熱門MV舞 (Kpop 流行)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
+                    <!-- 週三 -->
+                    <div id="mobile-day-2" class="mobile-day-panel space-y-3 hidden">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 text-blue-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 芭蕾', '不限年齡', '成人芭蕾入門基礎')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] bg-blue-200/50 px-2 py-0.5 rounded-md font-bold">基礎</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>10:00 - 11:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">成人芭蕾入門基礎 (基礎芭蕾)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
+                    <!-- 週四 -->
+                    <div id="mobile-day-3" class="mobile-day-panel space-y-3 hidden">
+                        <div class="flex items-center justify-between p-4 bg-orange-50 text-orange-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-[10px] bg-orange-200/50 px-2 py-0.5 rounded-md font-bold">高級</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>14:00 - 15:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">高級中國舞身韻特訓 (中國舞)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
+                    <!-- 週五 -->
+                    <div id="mobile-day-4" class="mobile-day-panel space-y-3 hidden">
+                        <div class="flex items-center justify-between p-4 bg-emerald-50 text-emerald-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Leo 老師', '3 樓 A 教室', '成人班 / 拉丁舞', '16歲以上', '成人拉丁舞放鬆')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-[10px] bg-emerald-200/50 px-2 py-0.5 rounded-md font-bold">成人</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>10:00 - 11:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">成人拉丁舞放鬆 (拉丁舞)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
+                    <!-- 週六 -->
+                    <div id="mobile-day-5" class="mobile-day-panel space-y-3 hidden">
+                        <!-- 第一堂課 -->
+                        <div class="flex items-center justify-between p-4 bg-pink-50 text-pink-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] bg-pink-200/50 px-2 py-0.5 rounded-md font-bold">幼兒</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>10:00 - 11:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">幼兒基礎律動芭蕾 (幼兒芭蕾)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+
+                        <!-- 第二堂課 -->
+                        <div class="flex items-center justify-between p-4 bg-purple-50 text-purple-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="text-[10px] bg-purple-200/50 px-2 py-0.5 rounded-md font-bold">中級</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>14:00 - 15:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">中級熱門MV舞 (Kpop 流行)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
+                    <!-- 週日 -->
+                    <div id="mobile-day-6" class="mobile-day-panel space-y-3 hidden">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 text-blue-700 rounded-2xl cursor-pointer shadow-sm active:scale-98 transition-transform"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 中國舞', '不限年齡', '基礎中國傳統舞入門')">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] bg-blue-200/50 px-2 py-0.5 rounded-md font-bold">基礎</span>
+                                    <span class="text-xs font-semibold opacity-75"><i
+                                            class="fa-regular fa-clock mr-1"></i>14:00 - 15:30</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-1 text-slate-800">基礎中國傳統舞入門 (中國舞基礎)</h4>
+                                <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="schedule-modal"
-        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div
-            class="bg-white w-full max-w-md rounded-3xl p-6 shadow-xl relative transform scale-95 transition-transform duration-300">
-            <button onclick="closeScheduleModal()"
-                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 rounded-full focus:outline-none">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-            <div class="mb-5">
-                <span id="modal-level-tag"
-                    class="inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-2 bg-indigo-50 text-secondary"></span>
-                <h3 id="modal-class-name" class="text-2xl font-bold text-textDark">課程詳情</h3>
-            </div>
-
-            <div class="space-y-3 text-sm border-t border-b border-slate-100 py-4 mb-6">
-                <div class="flex justify-between"><span class="text-slate-400">上課時間：</span><span id="modal-time"
-                        class="font-medium text-textDark"></span></div>
-                <div class="flex justify-between"><span class="text-slate-400">授課導師：</span><span id="modal-teacher"
-                        class="font-medium text-textDark"></span></div>
-                <div class="flex justify-between"><span class="text-slate-400">教室樓層：</span><span id="modal-floor"
-                        class="font-medium text-textDark"></span></div>
-                <div class="flex justify-between"><span class="text-slate-400">難度舞種：</span><span id="modal-type"
-                        class="font-medium text-secondary"></span></div>
-                <div class="flex justify-between"><span class="text-slate-400">適用對象：</span><span id="modal-age"
-                        class="font-medium text-textDark"></span></div>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                <a href="https://docs.google.com/forms" target="_blank"
-                    class="w-full text-center py-3.5 bg-secondary text-white font-semibold rounded-2xl hover:bg-secondaryHover shadow-md transition-all duration-300 text-sm">
-                    立即線上預約試課 (Google Form)
-                </a>
-                <a href="https://wa.me/123456789" target="_blank"
-                    class="w-full text-center py-3.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-2xl hover:bg-slate-50 transition-all duration-300 text-sm flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i> WhatsApp 諮詢
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <section id="social-proof" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+    <section id="social-proof" class="pt-4 pb-16 md:py-24 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2 pt-5">
                 Social Proof
@@ -705,7 +928,7 @@
         </div>
     </section>
 
-    <section id="faq" class="py-16 md:py-24 bg-bgLight">
+    <section id="faq" class="pt-4 pb-16 md:py-24 bg-bgLight">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-12">
                 <div class="inline-block text-secondary font-semibold tracking-wider uppercase text-sm mb-2 pt-5">FAQ
@@ -766,7 +989,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 md:py-24 max-w-7xl mx-auto px-6">
+    <section id="contact" class="pt-4 pb-16 md:py-24 max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div class="space-y-8">
                 <div>
@@ -1077,31 +1300,57 @@
             }, 300);
         }
 
-        // 5. Class Schedule Detail View Modal Interactivity 
+        // 5. Class Schedule Detail View Modal Interactivity (升級版：電腦版面板 + 手機版彈窗)
         const scheduleModal = document.getElementById('schedule-modal');
         const innerModal = scheduleModal.querySelector('div');
 
         function openScheduleModal(time, teacher, floor, type, age, className) {
-            document.getElementById('modal-time').innerText = time;
-            document.getElementById('modal-teacher').innerText = teacher;
-            document.getElementById('modal-floor').innerText = floor;
-            document.getElementById('modal-type').innerText = type;
-            document.getElementById('modal-age').innerText = age;
-            document.getElementById('modal-class-name').innerText = className;
-
-            // Extract core category
+            // 保留你原本聰明的標籤截斷邏輯 (例如把 "基礎班 / 芭蕾" 變成 "基礎班")
             const category = type.split(' / ')[0] || '課程';
-            document.getElementById('modal-level-tag').innerText = category;
 
-            scheduleModal.classList.remove('hidden', 'pointer-events-none');
-            setTimeout(() => {
-                scheduleModal.classList.remove('opacity-0');
-                scheduleModal.classList.add('opacity-100');
-                innerModal.classList.remove('scale-95');
-                innerModal.classList.add('scale-100');
-            }, 10);
+            // 判斷螢幕寬度 (768px 以上為電腦版)
+            if (window.innerWidth >= 768) {
+                // --- 電腦版：在表格下方展開詳情面板 ---
+                document.getElementById('inline-level-tag').innerText = category;
+                document.getElementById('inline-class-name').innerText = className;
+                document.getElementById('inline-time').innerText = time;
+                document.getElementById('inline-teacher').innerText = teacher;
+                document.getElementById('inline-floor').innerText = floor;
+                document.getElementById('inline-age').innerText = age;
+
+                const wrapper = document.getElementById('desktop-detail-wrapper');
+                // 執行平滑展開動畫
+                wrapper.classList.remove('max-h-0', 'opacity-0');
+                wrapper.classList.add('max-h-[500px]', 'opacity-100');
+
+            } else {
+                // --- 手機版：完全維持你原本精心寫好的彈出視窗 (Modal) 與動畫 ---
+                document.getElementById('modal-time').innerText = time;
+                document.getElementById('modal-teacher').innerText = teacher;
+                document.getElementById('modal-floor').innerText = floor;
+                document.getElementById('modal-type').innerText = type;
+                document.getElementById('modal-age').innerText = age;
+                document.getElementById('modal-class-name').innerText = className;
+                document.getElementById('modal-level-tag').innerText = category; // 套用截斷後的標籤
+
+                scheduleModal.classList.remove('hidden', 'pointer-events-none');
+                setTimeout(() => {
+                    scheduleModal.classList.remove('opacity-0');
+                    scheduleModal.classList.add('opacity-100');
+                    innerModal.classList.remove('scale-95');
+                    innerModal.classList.add('scale-100');
+                }, 10);
+            }
         }
 
+        // 新增：關閉電腦版面板的函數
+        function closeDesktopPanel() {
+            const wrapper = document.getElementById('desktop-detail-wrapper');
+            wrapper.classList.remove('max-h-[500px]', 'opacity-100');
+            wrapper.classList.add('max-h-0', 'opacity-0');
+        }
+
+        // 保留你原本的：關閉手機版彈出視窗
         function closeScheduleModal() {
             scheduleModal.classList.remove('opacity-100');
             scheduleModal.classList.add('opacity-0');
@@ -1109,10 +1358,12 @@
             innerModal.classList.add('scale-95');
             setTimeout(() => {
                 scheduleModal.classList.add('hidden');
+                // 為了保險起見，可以加回這行確保隱藏時無法點擊
+                scheduleModal.classList.add('pointer-events-none');
             }, 300);
         }
 
-        // Close modal when background overlay is clicked
+        // 保留你原本的：點擊背景關閉彈出視窗
         scheduleModal.addEventListener('click', (e) => {
             if (e.target === scheduleModal) closeScheduleModal();
         });
@@ -1164,6 +1415,28 @@
                 handleMapError();
             }
         });
+
+        // 8. 手機版課表按星期進行「翻頁/切換分頁」控制邏輯
+        function changeMobileDay(dayIndex) {
+            // 先隱藏所有星期的課程面板
+            document.querySelectorAll('.mobile-day-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            // 只顯示當前點擊星期的面板
+            document.getElementById(`mobile-day-${dayIndex}`).classList.remove('hidden');
+
+            // 還原所有星期按鈕的預設外觀（白底灰字）
+            document.querySelectorAll('.mobile-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-secondary', 'text-white');
+                btn.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+            });
+            // 讓當前選中的按鈕變成高亮色（主色紅/桃紅底白字）
+            const activeBtn = document.querySelector(`.mobile-tab-btn[data-day="${dayIndex}"]`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+                activeBtn.classList.add('bg-secondary', 'text-white');
+            }
+        }
     </script>
 </body>
 
