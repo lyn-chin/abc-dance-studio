@@ -103,19 +103,22 @@
 
 <body class="bg-white text-textDark">
 
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-6">
-        <div class="max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-md rounded-2xl px-6 py-3 shadow-sm transition-all duration-300"
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 md:py-6 px-3 sm:px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-md rounded-2xl px-4 sm:px-6 py-3 shadow-sm transition-all duration-300"
             id="nav-container">
+
             <a href="#hero-carousel"
-                class="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-secondary rounded-full p-1">
+                class="flex items-center space-x-2 sm:space-x-3 focus:outline-none focus:ring-2 focus:ring-secondary rounded-full p-1">
                 <div
-                    class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    class="w-9 h-9 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg shadow-md flex-shrink-0">
                     abc
                 </div>
-                <span class="font-bold text-xl tracking-wide text-textDark">abc studio</span>
+                <span
+                    class="font-bold text-base sm:text-lg lg:text-xl tracking-wide text-textDark whitespace-nowrap">abc
+                    studio</span>
             </a>
 
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden lg:flex items-center space-x-5 xl:space-x-8">
                 <a href="#about"
                     class="nav-link text-sm font-medium hover:text-secondary transition-colors duration-300 focus:outline-none focus:text-secondary">關於我們</a>
                 <a href="#dance-types"
@@ -133,7 +136,7 @@
             </div>
 
             <button id="menu-btn"
-                class="md:hidden text-textDark p-2 focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg"
+                class="lg:hidden text-textDark p-2 focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg"
                 aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
@@ -1305,7 +1308,7 @@
         const innerModal = scheduleModal.querySelector('div');
 
         function openScheduleModal(time, teacher, floor, type, age, className) {
-            // 保留你原本聰明的標籤截斷邏輯 (例如把 "基礎班 / 芭蕾" 變成 "基礎班")
+            // 保留你原本聰明的標籤截斷邏輯
             const category = type.split(' / ')[0] || '課程';
 
             // 判斷螢幕寬度 (768px 以上為電腦版)
@@ -1323,6 +1326,12 @@
                 wrapper.classList.remove('max-h-0', 'opacity-0');
                 wrapper.classList.add('max-h-[500px]', 'opacity-100');
 
+                wrapper.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+                // =====================================================================
+
             } else {
                 // --- 手機版：完全維持你原本精心寫好的彈出視窗 (Modal) 與動畫 ---
                 document.getElementById('modal-time').innerText = time;
@@ -1331,7 +1340,7 @@
                 document.getElementById('modal-type').innerText = type;
                 document.getElementById('modal-age').innerText = age;
                 document.getElementById('modal-class-name').innerText = className;
-                document.getElementById('modal-level-tag').innerText = category; // 套用截斷後的標籤
+                document.getElementById('modal-level-tag').innerText = category;
 
                 scheduleModal.classList.remove('hidden', 'pointer-events-none');
                 setTimeout(() => {
@@ -1358,7 +1367,6 @@
             innerModal.classList.add('scale-95');
             setTimeout(() => {
                 scheduleModal.classList.add('hidden');
-                // 為了保險起見，可以加回這行確保隱藏時無法點擊
                 scheduleModal.classList.add('pointer-events-none');
             }, 300);
         }
