@@ -496,7 +496,9 @@
             </div>
 
             <div class="hidden md:block overflow-x-auto bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
-                <div class="grid grid-cols-7 gap-4 min-w-[1000px]">
+                <div class="grid grid-cols-8 gap-4 min-w-[1000px] items-center">
+
+                    <div class="font-bold py-2.5 text-slate-400 text-center bg-slate-50 rounded-xl text-sm">時段</div>
                     <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週一 (Mon)
                     </div>
                     <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週二 (Tue)
@@ -512,11 +514,17 @@
                     <div class="font-bold py-2.5 text-slate-700 text-center bg-slate-50 rounded-xl text-sm">週日 (Sun)
                     </div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300"
+                    <div
+                        class="font-bold py-8 text-indigo-600 text-center bg-indigo-50/40 rounded-2xl text-sm flex flex-col justify-center h-full border border-indigo-50">
+                        <span class="text-base font-black">上午</span>
+                        <span class="text-[11px] opacity-60 font-normal mt-1">AM Session</span>
+                    </div>
+
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('10:00 - 11:30', 'Mia 老師', '3 樓 A 教室', '成人班 / 肚皮舞', '18歲以上', '成人核心美體班')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">肚皮舞</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
@@ -525,24 +533,15 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300"
-                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
-                            </div>
-                            <p class="font-bold text-[15px] text-slate-800 mb-1">Kpop 流行</p>
-                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
-                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
-                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師</div>
-                        </div>
-                    </div>
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300"
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 芭蕾', '不限年齡', '成人芭蕾入門基礎')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">基礎芭蕾</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
@@ -551,24 +550,15 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-orange-50 text-orange-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-orange-100 transition-all duration-300"
-                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-orange-200/50 px-1.5 py-0.5 rounded-md">高級</span>
-                            </div>
-                            <p class="font-bold text-[15px] text-slate-800 mb-1">中國舞</p>
-                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
-                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
-                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
-                        </div>
-                    </div>
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300"
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-emerald-50 text-emerald-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-emerald-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('10:00 - 11:30', 'Leo 老師', '3 樓 A 教室', '成人班 / 拉丁舞', '16歲以上', '成人拉丁舞放鬆')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-emerald-200/50 px-1.5 py-0.5 rounded-md">成人</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">拉丁舞</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
@@ -577,22 +567,39 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-pink-50 text-pink-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-pink-100 transition-all duration-300"
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-pink-50 text-pink-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-pink-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('10:00 - 11:30', 'Emily 老師', '1 樓 A 教室', '幼兒班 / 芭蕾', '3-6 歲', '幼兒基礎律動芭蕾')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-pink-200/50 px-1.5 py-0.5 rounded-md">幼兒</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-pink-200/50 px-1.5 py-0.5 rounded-md">幼兒</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">幼兒芭蕾</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
                                     class="fa-regular fa-clock mr-0.5"></i> 10:00-11:30</div>
                             <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
                         </div>
+                    </div>
 
-                        <div class="bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300"
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
+
+
+                    <div
+                        class="font-bold py-8 text-rose-600 text-center bg-rose-50/40 rounded-2xl text-sm flex flex-col justify-center h-full border border-rose-50">
+                        <span class="text-base font-black">下午</span>
+                        <span class="text-[11px] opacity-60 font-normal mt-1">PM Session</span>
+                    </div>
+
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
+
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">Kpop 流行</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
@@ -601,11 +608,45 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 min-h-[280px] p-1 bg-slate-50/30 rounded-2xl">
-                        <div class="bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300"
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
+
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-orange-50 text-orange-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-orange-100 transition-all duration-300 shadow-sm"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '高級班 / 中國舞', '有基礎者', '高級中國舞身韻特訓')">
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-orange-200/50 px-1.5 py-0.5 rounded-md">高級</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">中國舞</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-1 bg-slate-50/30 border border-dashed border-slate-200 rounded-2xl min-h-[140px] flex items-center justify-center text-slate-300 text-xs font-medium">
+                        休息 Rest</div>
+
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-purple-50 text-purple-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-purple-100 transition-all duration-300 shadow-sm"
+                            onclick="openScheduleModal('14:00 - 15:30', 'Leo 老師', '2 樓 A 教室', '中級班 / Kpop', '12 歲以上', '中級熱門MV舞')">
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-purple-200/50 px-1.5 py-0.5 rounded-md">中級</span>
+                            </div>
+                            <p class="font-bold text-[15px] text-slate-800 mb-1">Kpop 流行</p>
+                            <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
+                                    class="fa-regular fa-clock mr-0.5"></i> 14:00-15:30</div>
+                            <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Leo 老師</div>
+                        </div>
+                    </div>
+
+                    <div class="p-1 bg-slate-50/30 rounded-2xl h-full flex items-center">
+                        <div class="w-full bg-blue-50 text-blue-700 p-3.5 rounded-2xl cursor-pointer hover:scale-[1.03] border border-blue-100 transition-all duration-300 shadow-sm"
                             onclick="openScheduleModal('14:00 - 15:30', 'Emily 老師', '2 樓 B 教室', '基礎班 / 中國舞', '不限年齡', '基礎中國傳統舞入門')">
-                            <div class="mb-1.5">
-                                <span class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
+                            <div class="mb-1.5"><span
+                                    class="text-[10px] font-bold bg-blue-200/50 px-1.5 py-0.5 rounded-md">基礎</span>
                             </div>
                             <p class="font-bold text-[15px] text-slate-800 mb-1">中國舞基礎</p>
                             <div class="text-[11px] font-medium text-slate-500 mb-0.5"><i
@@ -613,6 +654,7 @@
                             <div class="text-xs text-slate-500"><i class="fa-regular fa-user mr-0.5"></i> Emily 老師</div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
